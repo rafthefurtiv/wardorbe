@@ -1,7 +1,10 @@
 {
   "name": "inmywardrobe",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {
+      "enabled": false
+    },
+    "cordova": {}
   },
   "type": "angular",
   "id": "9ded3815"
