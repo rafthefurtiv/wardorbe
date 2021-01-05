@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FilePath } from '@ionic-native/file-path/ngx';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+
 
 @Component({
   selector: 'app-folder',
@@ -19,12 +22,15 @@ export class FolderPage implements OnInit {
   public maglietta: String;
   public pantalone: String;
   public scarpa: String;
+  public provola: String;
 
   public images: Array<Array<String>>;
   public indexes: number[] = [0, 1, 2, 3];
+  
 
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute, private filePath: FilePath,
+    private camera: Camera) { }
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
@@ -33,7 +39,7 @@ export class FolderPage implements OnInit {
     this.maglietta = "https://img01.ztat.net/article/spp-media-p1/c2adf713a3f53ebe9c016ea13404f282/b8375d7d990b4ea680067665470862d2.jpg?imwidth=1800&filter=packshot";
     this.pantalone = "https://img01.ztat.net/article/spp-media-p1/336a02c460ae3c979c0da5711b726f5a/1e0c3fea22594f1192a496c4998f509a.jpg?imwidth=156&filter=packshot%C3%B9";
     this.scarpa = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnjKJy0QLhHiKPmrAqajMEP_OlylzyC5GVzg&usqp=CAU";
-
+    this.provola = "ciao";
     let i = 0;
     this.images = new Array<Array<String>>();
     for (let i = 0; i < 4; i++) {
@@ -45,6 +51,28 @@ export class FolderPage implements OnInit {
       
       this.images.push(temp);
     }
+
+    const options: CameraOptions = {
+      quality: 100,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    }
+
+
+    this.camera.getPicture(options).then((imageData) => {
+      // imageData is either a base64 encoded string or a file URI
+      // If it's base64 (DATA_URL):
+      let base64Image = 'data:image/jpeg;base64,' + imageData;
+      this.provola = "done!";
+     }, (err) => {
+      this.provola = err;
+     });
+
+/*
+    this.filePath.resolveNativePath("")
+  .then(filePath => {console.log(filePath); this.provola = "done!";})
+  .catch(err => {console.log(err); this.provola = "porca zozza!";});*/
     
   }
 
