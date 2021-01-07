@@ -10,12 +10,24 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FilePath } from '@ionic-native/file-path/ngx';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { File } from '@ionic-native/file/ngx';
+import { IonicGestureConfig } from '../app/utils/IonicGestureConfig';
+import { HammerGestureConfig } from '@angular/platform-browser';
+import { CapoComponent } from "../app/capo/capo.component";
+import { CapoModule } from "./capo/capo.module";
+
+
+
+
 
 
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent,
+    CapoComponent
+    ],
+  entryComponents: [
+  ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
@@ -26,8 +38,11 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     FilePath,
-    Camera
+    Camera,
+    File,
+    HammerGestureConfig
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [CapoComponent]
 })
 export class AppModule {}

@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Cappelli</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div>
+    <div>{{provola}}</div>
+  </div>
+
+  <ion-item *ngFor="let p of listFiles">
+    {{p}}
+  </ion-item>
+
+  <app-capo>
+
+  </app-capo>
+
+
+</ion-content>

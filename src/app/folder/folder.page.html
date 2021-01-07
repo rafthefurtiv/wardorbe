@@ -3,35 +3,40 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Armadioo</ion-title>
+    <ion-title>Armadio</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Armadioo</ion-title>
+      <ion-title size="large">Armadio</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div>{{provola}}</div>
-  
+  <div *ngIf="debug">
+    <div>{{provola}}</div>
+    <div>---------</div>
+    <div>{{console2}}</div>
+  </div>
+
   <div>
     <ion-grid>
       <ion-row>
         <ion-col size="2">
           <div style="text-align: left;">
-            <ion-button size="small" color="primary" style="margin-top: 15px;" (click) ="chageCappello(false)">cc</ion-button>
+            <ion-button size="small" color="primary" style="margin-top: 15px;" (click) ="changeIndex(0, false)"><</ion-button>
           </div>
         </ion-col>
         <ion-col>
           <div style="text-align: center;">
-            <img style="height: 60px;" class="img" [src]="cappello">
+            <img style="height: 60px;" class="img" [src]="images[0][indexes[0]]" (click)="getNewPhoto('cappello')">
+            <img *ngIf="!images[0][indexes[0]]" style="height: 60px;" class="img" [src]="vuoto" (click)="getNewPhoto('cappello')">
           </div>
         </ion-col>
         <ion-col size="2">
           <div style="text-align: right;">
-            <ion-button size="small" color="primary" style="margin-top: 15px;" (click)="chageCappello(true)">></ion-button>
+            <ion-button size="small" color="primary" style="margin-top: 15px;" (click)="changeIndex(0, true)">></ion-button>
           </div>
         </ion-col>
       </ion-row>
@@ -40,17 +45,18 @@
       <ion-row>
         <ion-col size="2">
           <div style="text-align: left;">
-            <ion-button size="small" color="primary" style="margin-top: 70px;" (click) ="changeMaglia(false)"><</ion-button>
+            <ion-button size="small" color="primary" style="margin-top: 70px;" (click) ="changeIndex(1, false)"><</ion-button>
           </div>
         </ion-col>
         <ion-col>
           <div style="text-align: center;">
-            <img style="height: 180px;" class="img" [src]="maglietta">
+            <img style="height: 180px;" class="img" [src]="images[1][indexes[1]]" (click)="getNewPhoto('maglietta')">
+            <img *ngIf="!images[1][indexes[1]]" style="height: 180px;" class="img" [src]="vuoto" (click)="getNewPhoto('maglietta')">
           </div>
         </ion-col>
         <ion-col size="2">
           <div style="text-align: right;">
-            <ion-button size="small" color="primary" style="margin-top: 70px;" (click) ="changeMaglia(true)">></ion-button>
+            <ion-button size="small" color="primary" style="margin-top: 70px;" (click) ="changeIndex(1, true)">></ion-button>
           </div>
         </ion-col>
       </ion-row>
@@ -58,17 +64,18 @@
       <ion-row>
         <ion-col size="2">
           <div style="text-align: left;">
-            <ion-button size="small" color="primary" style="margin-top: 70px;" (click) ="changePantalone(false)"><</ion-button>
+            <ion-button size="small" color="primary" style="margin-top: 70px;" (click) ="changeIndex(2, false)"><</ion-button>
           </div>
         </ion-col>
         <ion-col>
           <div style="text-align: center;">
-            <img style="height: 180px;" class="img" [src]="pantalone">
+            <img style="height: 180px;" class="img" [src]="images[2][indexes[2]]" (click)="getNewPhoto('pantalone')">
+            <img *ngIf="!images[2][indexes[2]]" style="height: 180px;" class="img" [src]="vuoto" (click)="getNewPhoto('pantalone')">
           </div>
         </ion-col>
         <ion-col size="2">
           <div style="text-align: right;">
-            <ion-button size="small" color="primary" style="margin-top: 70px;" (click) ="changePantalone(true)">></ion-button>
+            <ion-button size="small" color="primary" style="margin-top: 70px;" (click) ="changeIndex(2, true)">></ion-button>
           </div>
         </ion-col>
       </ion-row>
@@ -76,17 +83,18 @@
       <ion-row>
         <ion-col size="2">
           <div style="text-align: left;">
-            <ion-button size="small" color="primary" (click) ="changeScarpa(false)"><</ion-button>
+            <ion-button size="small" color="primary" (click) ="changeIndex(3, false)"><</ion-button>
           </div>
         </ion-col>
         <ion-col>
           <div style="text-align: center;">
-            <img style="height: 50px;" class="img" [src]="scarpa">
+            <img style="height: 50px;" class="img" [src]="images[3][indexes[3]]" (click)="getNewPhoto('scarpa')">
+            <img *ngIf="!images[3][indexes[3]]" style="height: 50px;" class="img" [src]="vuoto" (click)="getNewPhoto('scarpa')">
           </div>
         </ion-col>
         <ion-col size="2">
           <div style="text-align: right;">
-            <ion-button size="small" color="primary" (click) ="changeScarpa(true)">></ion-button>
+            <ion-button size="small" color="primary" (click) ="changeIndex(3, true)">></ion-button>
           </div>
         </ion-col>
       </ion-row>
