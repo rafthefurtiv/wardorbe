@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FilePath } from '@ionic-native/file-path/ngx';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { File } from '@ionic-native/file/ngx';
-import {Type} from '../models/type';
+import { Type } from '../models/type';
 
 
 
@@ -34,7 +34,7 @@ export class FolderPage implements OnInit {
   public images: Array<Array<void>>;
   public indexes: number[] = [0, 0, 0, 0];
 
-  public types: Array<Type> = [new Type(0, "cappello"), new Type(1, "maglietta"), new Type(2, "pantalone"), new Type(3, "scarpa")];
+  public types: Array<Type> = [new Type(0, "cappelli"), new Type(1, "magliette"), new Type(2, "pantaloni"), new Type(3, "scarpe")];
   
 
 
@@ -46,6 +46,7 @@ export class FolderPage implements OnInit {
 
     let i = 0;
     this.images = new Array<Array<void>>();
+
  
 
 
@@ -107,7 +108,6 @@ export class FolderPage implements OnInit {
           files.forEach(ele => {
             this.provola += type.index + ")" +  type.name + "\n";
             if(ele.isFile){
-              this.provola += ele.nativeURL + "\n";
               let photo;
               let vet = this.getSeparetedUrl(ele.nativeURL);
               this.file.readAsDataURL(vet[0], vet[1])

@@ -14,11 +14,8 @@ import { File } from '@ionic-native/file/ngx';
 import { IonicGestureConfig } from '../app/utils/IonicGestureConfig';
 import { HammerGestureConfig } from '@angular/platform-browser';
 import { CapoComponent } from "../app/capo/capo.component";
-import { CapoModule } from "./capo/capo.module";
-
-
-
-
+import { FileChooser } from '@ionic-native/file-chooser/ngx';
+import { Chooser } from '@ionic-native/chooser/ngx';
 
 
 
@@ -40,7 +37,9 @@ import { CapoModule } from "./capo/capo.module";
     FilePath,
     Camera,
     File,
-    HammerGestureConfig
+    HammerGestureConfig,
+    FileChooser,
+    Chooser
   ],
   bootstrap: [AppComponent],
   exports: [CapoComponent]

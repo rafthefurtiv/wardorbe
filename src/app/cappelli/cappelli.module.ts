@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { CappelliPageRoutingModule } from './cappelli-routing.module';
 
 import { CappelliPage } from './cappelli.page';
-import { ComponentsModule } from '../component.modules';
+import { CapoModule } from '../capo/capo.module';
 
 @NgModule({
   imports: [
@@ -15,7 +15,7 @@ import { ComponentsModule } from '../component.modules';
     FormsModule,
     IonicModule,
     CappelliPageRoutingModule,
-    ComponentsModule
+    CapoModule
   ],
   declarations: [CappelliPage]
 })

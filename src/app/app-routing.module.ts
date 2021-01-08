@@ -4,15 +4,15 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'folder/Armadio',
+    redirectTo: 'armadio/Armadio',
     pathMatch: 'full'
   },
   {
-    path: 'folder/:id',
+    path: 'armadio/:id',
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
   },
   {
-    path: 'cappelli',
+    path: 'sezione/:id',
     loadChildren: () => import('./cappelli/cappelli.module').then( m => m.CappelliPageModule)
   }
 ];

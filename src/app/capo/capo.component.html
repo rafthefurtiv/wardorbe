@@ -1,4 +1,5 @@
-<div>
-  CIAOOOO
+<img [src]="imageData" (click)="selectThis()">
 
+<div [hidden]="!checkVisible">
+  <ion-checkbox [checked]="selected"></ion-checkbox>
 </div>

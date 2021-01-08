@@ -1,9 +1,26 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" style="bottom: 0; margin-bottom: 0;">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Cappelli</ion-title>
+    <ion-title>{{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header style="top: -8px;"> 
+  <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-button (click)="deleteSelectioned()">
+        <ion-icon slot="icon-only" name="trash-sharp"></ion-icon>
+      </ion-button>
+      <ion-button (click)="enableDisableSelection()">
+        <ion-icon slot="icon-only" name="checkbox-sharp"></ion-icon>
+      </ion-button>
+      <ion-button (click)="chosePhoto()">
+        <ion-icon slot="icon-only" name="add-circle-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -12,14 +29,18 @@
   <div>
     <div>{{provola}}</div>
   </div>
+  <div>
+    <div>{{consol}}</div>
+  </div>
 
-  <ion-item *ngFor="let p of listFiles">
-    {{p}}
-  </ion-item>
 
-  <app-capo>
-
-  </app-capo>
-
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let p of listPhotos" size="4">
+        <app-capo [imageData]="p.data" [selected]="p.selected" [checkVisible]="checkVisibles" (selectedChange)="p.selected= $event"></app-capo>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

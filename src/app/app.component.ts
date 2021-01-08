@@ -14,27 +14,27 @@ export class AppComponent implements OnInit {
   public appPages = [
     {
       title: 'Armadio',
-      url: '/folder/Armadio',
+      url: '/armadio/Armadio',
       icon: 'file-tray-stacked-sharp'
     },
     {
       title: 'Cappelli',
-      url: 'cappelli',
+      url: 'sezione/cappelli',
       icon: 'file-tray-sharp'
     },
     {
       title: 'Magliette',
-      url: '/folder/Magliette',
+      url: 'sezione/magliette',
       icon: 'file-tray-sharp'
     },
     {
       title: 'Pantaloni',
-      url: '/folder/Pantaloni',
+      url: 'sezione/pantaloni',
       icon: 'file-tray-sharp'
     },
     {
       title: 'Scarpe',
-      url: '/folder/Scarpe',
+      url: 'sezione/scarpe',
       icon: 'file-tray-sharp'
     },
     {
